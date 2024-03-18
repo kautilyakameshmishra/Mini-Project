@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  background-color: #f2f2f2;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 3px;
+  width: 300px;
+  height: 50px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  position: relative;
+  transition: width 0.5s ease;
+}
+
+.magnifier,
+.mic-icon {
+  cursor: pointer;
+  position: absolute;
+  transition: width 0.4s;
+}
+
+.magnifier {
+  width: 30px;
+  left: 14px;
+}
+
+.mic-icon {
+  width: 40px;
+  right: 15px;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  margin: 0 45px;
+  width: calc(100% - 90px);
+  outline: none;
+  color: #333;
+  transition: width 0.5s ease;
+}
+
+.active.search-bar-container {
+  width: 50px;
+}
+
+.active .input {
+  width: 0;
+  margin: 0;
+}
+
+.active .mic-icon {
+  width: 0;
+}
+
+.search-bar-container:hover .magnifier,
+.search-bar-container:hover .mic-icon {
+  transform: scale(1.2);
+}
+
+.search-bar-container.active {
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.search-bar-container:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.search-bar-container.active {
+  background-color: #fff;
+  border: 2px solid transparent;
+  animation: rotateBorder 5s linear infinite;
+}
+
+@keyframes rotateBorder {
+  0% {
+    border: 2px solid #ff0000;
+  }
+  25% {
+    border: 2px solid #00ff00;
+  }
+  50% {
+    border: 2px solid #0000ff;
+  }
+  75% {
+    border: 2px solid #ffff00; 
+  }
+  100% {
+    border: 2px solid #ff00ff; 
+  }
+}

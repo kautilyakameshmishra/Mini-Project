@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  font-family: "Permanent Marker", cursive; 
+  background-color: #f6a1a1; 
+  animation: changeBackgroundColor 10s linear infinite;
+}
+
+@keyframes changeBackgroundColor {
+  0% {
+    background-color: #d7eff9;
+  }
+  25% {
+    background-color: #f6f6f6; 
+  }
+  50% {
+    background-color: #ffe6cc; 
+  }
+  75% {
+    background-color: #f0f8ff; 
+  }
+  100% {
+    background-color: #d7eff9; 
+  }
+}
