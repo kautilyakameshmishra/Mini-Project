@@ -78,14 +78,5 @@ button:hover {
   font-weight: bold;
   text-align: center;
   color: #007bff; 
-  animation: pulse 1.5s infinite alternate; 
 }
 
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.05);
-  }
-}
