@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  background: linear-gradient(135deg, #8a2be2 20%, #ff8c00 80%); 
+}
+
+.menu {
+  background: rgba(255, 255, 255, 0.2); 
+  width: 300px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.menu:hover {
+  background-color: rgba(255, 255, 255, 0.3); 
+}
+
+.menu p {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  color: white; 
+}
+
+.menu .fas {
+  transition: transform 0.2s; 
+}
+
+.menu:hover .fas {
+  transform: rotate(180deg); 
+}
+
+.social-lists {
+  background: rgba(255, 255, 255, 0.2); 
+  width: 300px;
+  padding: 10px;
+  list-style-type: none;
+  border-radius: 5px;
+}
+
+.social-lists li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, padding 0.3s ease; 
+}
+
+.social-lists li:hover {
+  background: rgba(255, 255, 255, 0.3); 
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.social-lists li .fab {
+  margin: 0 10px;
+}
+
+.hide {
+  visibility: hidden;
+}
