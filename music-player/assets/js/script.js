@@ -33,6 +33,15 @@ const musicData = [
     musicPath: "./assets/music/Dildaara-Stand-By-Me.mp3",
   },
   {
+    backgroundImage: "./assets/images/Apna-Bana-Le.jpg",
+    posterUrl: "./assets/images/Apna-Bana-Le.jpg",
+    title: "Apna Bana Le",
+    album: "Bhediya",
+    year: 2023,
+    artist: "Sachin–Jigar x Amitabh Bhattacharya x Arijit Singh",
+    musicPath: "./assets/music/Apna-Bana-Le.mp3",
+  },
+  {
     backgroundImage: "./assets/images/Dooriyan.jpg",
     posterUrl: "./assets/images/Dooriyan.jpg",
     title: "Dooriyan",
@@ -40,6 +49,15 @@ const musicData = [
     year: 2009,
     artist: "Pritam Chakraborty x Mohit Chauhan",
     musicPath: "./assets/music/Dooriyan.mp3",
+  },
+  {
+    backgroundImage: "./assets/images/Te-Amo.jpg",
+    posterUrl: "./assets/images/Te-Amo.jpg",
+    title: "Te Amo",
+    album: "Dum Maaro Dum",
+    year: 2011,
+    artist: "Ash King x Sunidhi Chauhan",
+    musicPath: "./assets/music/Te-Amo.mp3",
   },
   {
     backgroundImage: "./assets/images/Beete-Lamhein.jpg",
@@ -58,6 +76,24 @@ const musicData = [
     year: 2011,
     artist: "Ash King x Clinton Cerejo",
     musicPath: "./assets/music/I-Love-You.mp3",
+  },
+  {
+    backgroundImage: "./assets/images/Mera-Mann-Kehne-Laga.jpg",
+    posterUrl: "./assets/images/Mera-Mann-Kehne-Laga.jpg",
+    title: "Mera Mann Kehne Laga",
+    album: "Nautanki Saala!",
+    year: 2013,
+    artist: "Falak Shabir",
+    musicPath: "./assets/music/Mera-Mann-Kehne-Laga.mp3",
+  },
+  {
+    backgroundImage: "./assets/images/Humsafar.jpg",
+    posterUrl: "./assets/images/Humsafar.jpg",
+    title: "Humsafar",
+    album: "Badrinath Ki Dulhania",
+    year: 2018,
+    artist: "Akhil Sachdeva x Mansheel Gujral",
+    musicPath: "./assets/music/Humsafar.mp3",
   },
 ];
 
