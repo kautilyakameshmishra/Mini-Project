@@ -270,10 +270,6 @@ const seek = function () {
 playerSeekRange.addEventListener("input", seek);
 
 /**
- * END MUSIC
- */
-
-/**
  * SKIP TO PREVIOUS MUSIC
  */
 
@@ -301,7 +297,23 @@ playerSkipPrevBtn.addEventListener("click", skipPrev);
 /** get random number for shuffle */
 const getRandomMusic = () => Math.floor(Math.random() * musicData.length);
 
-const shuffleMusic = () => currentMusic = getRandomMusic();
+const shuffledIndexes = []; // Array to store shuffled indexes
+
+const shuffleMusic = function () {
+  let newIndex;
+  
+  do {
+    newIndex = getRandomMusic(); // Get a random index
+  } while (newIndex === currentMusic || shuffledIndexes.includes(newIndex)); // Ensure it's not the same as current or previously shuffled
+  
+  currentMusic = newIndex; // Update current music index
+  shuffledIndexes.push(currentMusic); // Add the new index to the shuffledIndexes array
+  
+  // Reset shuffledIndexes if all songs have been shuffled once
+  if (shuffledIndexes.length === musicData.length) {
+    shuffledIndexes.length = 0;
+  }
+};
 
 const playerShuffleBtn = document.querySelector("[data-shuffle]");
 let isShuffled = false;
