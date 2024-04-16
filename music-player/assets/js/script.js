@@ -1,6 +1,4 @@
-'use strict';
-
-
+"use strict";
 
 /**
  * all music information
@@ -54,8 +52,6 @@ const musicData = [
   },
 ];
 
-
-
 /**
  * add eventListnere on all elements that are passed
  */
@@ -64,9 +60,7 @@ const addEventOnElements = function (elements, eventType, callback) {
   for (let i = 0, len = elements.length; i < len; i++) {
     elements[i].addEventListener(eventType, callback);
   }
-}
-
-
+};
 
 /**
  * PLAYLIST
@@ -91,8 +85,6 @@ for (let i = 0, len = musicData.length; i < len; i++) {
   `;
 }
 
-
-
 /**
  * PLAYLIST MODAL SIDEBAR TOGGLE
  * 
@@ -108,11 +100,9 @@ const togglePlaylist = function () {
   playlistSideModal.classList.toggle("active");
   overlay.classList.toggle("active");
   document.body.classList.toggle("modalActive");
-}
+};
 
 addEventOnElements(playlistTogglers, "click", togglePlaylist);
-
-
 
 /**
  * PLAYLIST ITEM
@@ -129,15 +119,13 @@ let lastPlayedMusic = 0;
 const changePlaylistItem = function () {
   playlistItems[lastPlayedMusic].classList.remove("playing");
   playlistItems[currentMusic].classList.add("playing");
-}
+};
 
 addEventOnElements(playlistItems, "click", function () {
   lastPlayedMusic = currentMusic;
   currentMusic = Number(this.dataset.playlistItem);
   changePlaylistItem();
 });
-
-
 
 /**
  * PLAYER
@@ -151,7 +139,7 @@ const playerAlbum = document.querySelector("[data-album]");
 const playerYear = document.querySelector("[data-year]");
 const playerArtist = document.querySelector("[data-artist]");
 
-const audioSource = new Audio(musicData[currentMusic].musicPath);
+let audioSource = new Audio(musicData[currentMusic].musicPath);
 
 const changePlayerInfo = function () {
   playerBanner.src = musicData[currentMusic].posterUrl;
@@ -166,7 +154,7 @@ const changePlayerInfo = function () {
 
   audioSource.addEventListener("loadeddata", updateDuration);
   playMusic();
-}
+};
 
 addEventOnElements(playlistItems, "click", changePlayerInfo);
 
@@ -180,16 +168,14 @@ const getTimecode = function (duration) {
   const seconds = Math.ceil(duration - (minutes * 60));
   const timecode = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   return timecode;
-}
+};
 
 const updateDuration = function () {
   playerSeekRange.max = Math.ceil(audioSource.duration);
   playerDuration.textContent = getTimecode(Number(playerSeekRange.max));
-}
+};
 
 audioSource.addEventListener("loadeddata", updateDuration);
-
-
 
 /**
  * PLAY MUSIC
@@ -211,75 +197,20 @@ const playMusic = function () {
     playBtn.classList.remove("active");
     clearInterval(playInterval);
   }
-}
+};
 
 playBtn.addEventListener("click", playMusic);
 
-
 /** update running time while playing music */
 
-const playerRunningTime = document.querySelector("[data-running-time");
+const playerRunningTime = document.querySelector("[data-running-time]");
 
 const updateRunningTime = function () {
   playerSeekRange.value = audioSource.currentTime;
   playerRunningTime.textContent = getTimecode(audioSource.currentTime);
 
   updateRangeFill();
-  isMusicEnd();
-}
-
-
-
-/**
- * RANGE FILL WIDTH
- * 
- * change 'rangeFill' width, while changing range value
- */
-
-const ranges = document.querySelectorAll("[data-range]");
-const rangeFill = document.querySelector("[data-range-fill]");
-
-const updateRangeFill = function () {
-  let element = this || ranges[0];
-
-  const rangeValue = (element.value / element.max) * 100;
-  element.nextElementSibling.style.width = `${rangeValue}%`;
-}
-
-addEventOnElements(ranges, "input", updateRangeFill);
-
-
-
-/**
- * SEEK MUSIC
- * 
- * seek music while changing player seek range
- */
-
-const seek = function () {
-  audioSource.currentTime = playerSeekRange.value;
-  playerRunningTime.textContent = getTimecode(playerSeekRange.value);
-}
-
-playerSeekRange.addEventListener("input", seek);
-
-
-
-/**
- * END MUSIC
- */
-
-const isMusicEnd = function () {
-  if (audioSource.ended) {
-    playBtn.classList.remove("active");
-    audioSource.currentTime = 0;
-    playerSeekRange.value = audioSource.currentTime;
-    playerRunningTime.textContent = getTimecode(audioSource.currentTime);
-    updateRangeFill();
-  }
-}
-
-
+};
 
 /**
  * SKIP TO NEXT MUSIC
@@ -298,11 +229,49 @@ const skipNext = function () {
 
   changePlayerInfo();
   changePlaylistItem();
-}
+};
 
 playerSkipNextBtn.addEventListener("click", skipNext);
 
+/** 
+ * Add event listener to detect when the current song ends
+ */
+audioSource.addEventListener("ended", skipNext);
 
+/**
+ * RANGE FILL WIDTH
+ * 
+ * change 'rangeFill' width, while changing range value
+ */
+
+const ranges = document.querySelectorAll("[data-range]");
+const rangeFill = document.querySelector("[data-range-fill]");
+
+const updateRangeFill = function () {
+  let element = this || ranges[0];
+
+  const rangeValue = (element.value / element.max) * 100;
+  element.nextElementSibling.style.width = `${rangeValue}%`;
+};
+
+addEventOnElements(ranges, "input", updateRangeFill);
+
+/**
+ * SEEK MUSIC
+ * 
+ * seek music while changing player seek range
+ */
+
+const seek = function () {
+  audioSource.currentTime = playerSeekRange.value;
+  playerRunningTime.textContent = getTimecode(playerSeekRange.value);
+};
+
+playerSeekRange.addEventListener("input", seek);
+
+/**
+ * END MUSIC
+ */
 
 /**
  * SKIP TO PREVIOUS MUSIC
@@ -321,11 +290,9 @@ const skipPrev = function () {
 
   changePlayerInfo();
   changePlaylistItem();
-}
+};
 
 playerSkipPrevBtn.addEventListener("click", skipPrev);
-
-
 
 /**
  * SHUFFLE MUSIC
@@ -343,11 +310,9 @@ const shuffle = function () {
   playerShuffleBtn.classList.toggle("active");
 
   isShuffled = isShuffled ? false : true;
-}
+};
 
 playerShuffleBtn.addEventListener("click", shuffle);
-
-
 
 /**
  * REPEAT MUSIC
@@ -363,11 +328,9 @@ const repeat = function () {
     audioSource.loop = false;
     this.classList.remove("active");
   }
-}
+};
 
 playerRepeatBtn.addEventListener("click", repeat);
-
-
 
 /**
  * MUSIC VOLUME
@@ -389,10 +352,9 @@ const changeVolume = function () {
   } else {
     playerVolumeBtn.children[0].textContent = "volume_up";
   }
-}
+};
 
 playerVolumeRange.addEventListener("input", changeVolume);
-
 
 /**
  * MUTE MUSIC
@@ -405,6 +367,6 @@ const muteVolume = function () {
   } else {
     changeVolume();
   }
-}
+};
 
 playerVolumeBtn.addEventListener("click", muteVolume);
