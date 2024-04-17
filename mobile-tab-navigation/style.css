@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5; /* Lighter background */
+  font-family: "Roboto", sans-serif; /* Updated font */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.phone {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #ccc; /* Softer border */
+  border-radius: 20px; /* Slightly rounder corners */
+  height: 600px;
+  width: 340px;
+  background-color: #fff; /* White background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.phone .content {
+  opacity: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% - 60px);
+  width: 100%;
+  transition: opacity 0.4s ease;
+}
+
+.phone .content.show {
+  opacity: 1;
+}
+
+nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav ul {
+  background-color: #f5f5f5; /* Lighter background */
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  border-top: 1px solid #ccc; /* Separator line */
+}
+
+nav li {
+  color: #777; /* Darker gray text */
+  cursor: pointer;
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul li p {
+  font-size: 14px; /* Slightly larger text */
+  margin: 0;
+}
+
+nav ul li:hover,
+nav ul li.active {
+  color: #333; /* Darker hover color */
+}
