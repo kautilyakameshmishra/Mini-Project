@@ -1,38 +1,31 @@
-const nextEl = document.querySelector(".next");
+const body = document.body;
+const slides = document.querySelectorAll(".slide");
+const leftButton = document.getElementById("left");
+const rightButton = document.getElementById("right");
 
-const prevEl = document.querySelector(".prev");
+let activeSlide = 0;
 
-const imgsEl = document.querySelectorAll("img");
+const setBackground = () => {
+  body.style.backgroundImage = slides[activeSlide].style.backgroundImage;
+};
 
-const imageContainerEl = document.querySelector(".image-container");
+const setActiveSlide = () => {
+  slides.forEach((slide) => slide.classList.remove("active"));
+  slides[activeSlide].classList.add("active");
+};
 
-let currentImg = 1;
-
-let timeout;
-
-nextEl.addEventListener("click", () => {
-  currentImg++;
-  clearTimeout(timeout);
-  updateImg();
+rightButton.addEventListener("click", () => {
+  activeSlide++;
+  if (activeSlide > slides.length - 1) activeSlide = 0;
+  setBackground();
+  setActiveSlide();
 });
 
-prevEl.addEventListener("click", () => {
-  currentImg--;
-  clearTimeout(timeout);
-  updateImg();
+leftButton.addEventListener("click", () => {
+  activeSlide--;
+  if (activeSlide < 0) activeSlide = slides.length - 1;
+  setBackground();
+  setActiveSlide();
 });
 
-updateImg();
-
-function updateImg() {
-  if (currentImg > imgsEl.length) {
-    currentImg = 1;
-  } else if (currentImg < 1) {
-    currentImg = imgsEl.length;
-  }
-  imageContainerEl.style.transform = `translateX(-${(currentImg - 1) * 500}px)`;
-  timeout = setTimeout(() => {
-    currentImg++;
-    updateImg();
-  }, 3000);
-}
+setBackground();

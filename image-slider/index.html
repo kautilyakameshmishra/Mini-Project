@@ -2,29 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Image Slider</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="style.css" />
+    <title>Background Slider</title>
   </head>
   <body>
     <div class="slider-container">
-      <div class="image-container">
-        <img src="https://picsum.photos/id/237/500/300" alt="image" />
-        <img src="https://picsum.photos/id/1/500/300" alt="image" />
-        <img src="https://picsum.photos/id/10/500/300" alt="image" />
-        <img src="https://picsum.photos/id/20/500/300" alt="image" />
-        <img src="https://picsum.photos/id/200/500/300" alt="image" />
-      </div>
-      <i class="fas fa-angle-double-left btn prev"></i>
-      <i class="fas fa-angle-double-right btn next"></i>
+      <div
+        class="slide active"
+        style="
+          background-image: url('https://cdn.pixabay.com/photo/2023/03/22/06/07/mountain-7868726_1280.jpg');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1485038346757-ce17e40077ff?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://cdn.pixabay.com/photo/2021/08/14/04/15/mountains-6544522_1280.jpg');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://cdn.pixabay.com/photo/2020/07/19/21/50/forest-5421362_1280.jpg');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://cdn.pixabay.com/photo/2019/08/28/12/20/fog-4436636_1280.jpg');
+        "
+      ></div>
+      <button class="arrow left-arrow" id="left">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <button class="arrow right-arrow" id="right">
+        <i class="fas fa-arrow-right"></i>
+      </button>
     </div>
     <script src="index.js"></script>
   </body>
