@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  background: linear-gradient(135deg, #ff6b6b, #3b5998);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  padding: 50px;
+  max-width: 600px;
+  width: 90%;
+  animation: slideIn 1s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin: 20px 0;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+.icon img {
+  max-width: 100%;
+  height: auto;
+}
+
+.temperature {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.details > div {
+  flex: 1;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: #f1f1f1;
+  min-height: 45px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  .temperature {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+}
